@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salário Maternidade — Herbert & Galeno Advogados</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:    #1B2B38;
+    --navy-dk: #111E28;
+    --navy-lt: #253545;
+    --gold:    #C9A96E;
+    --gold-lt: #DFC190;
+    --white:   #F4F1EC;
+    --muted:   rgba(244,241,236,0.55);
+    --border:  rgba(201,169,110,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--navy-dk);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1000;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(17,30,40,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo { display: flex; flex-direction: column; }
+
+  .nav-logo-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 600;
+    letter-spacing: 0.22em; color: var(--white);
+    text-transform: uppercase; line-height: 1;
+  }
+
+  .nav-logo-sub {
+    font-size: 0.58rem; font-weight: 400;
+    letter-spacing: 0.3em; color: var(--gold);
+    text-transform: uppercase; margin-top: 0.3rem;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    border: 1px solid var(--gold) !important;
+    color: var(--gold) !important;
+    padding: 0.5rem 1.5rem !important;
+    transition: background 0.2s, color 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold) !important; color: var(--navy-dk) !important; }
+
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 5rem;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 40%, rgba(201,169,110,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 10% 60%, rgba(27,43,56,0.9) 0%, transparent 80%);
+    pointer-events: none;
+  }
+
+  .hero-line {
+    position: absolute; top: 0; bottom: 0; left: 4rem;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
+    pointer-events: none;
+  }
+
+  .hero-line-r { left: auto; right: 4rem; }
+
+  .hero-inner { max-width: 820px; position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 2.5rem;
+    animation: fadeIn 1s ease both;
+  }
+
+  .hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+
+  .hero-eyebrow-text {
+    font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300; line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s 0.2s ease both;
+  }
+
+  .hero h1 strong { font-weight: 600; font-style: italic; color: var(--gold-lt); }
+
+  .hero-desc {
+    font-size: 1rem; font-weight: 300; line-height: 1.8;
+    color: var(--muted); max-width: 540px; margin-bottom: 3rem;
+    animation: fadeIn 1s 0.4s ease both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1.25rem; flex-wrap: wrap;
+    animation: fadeIn 1s 0.6s ease both;
+  }
+
+  .btn-gold {
+    background: var(--gold); color: var(--navy-dk);
+    padding: 1rem 2.5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+  .btn-outline {
+    border: 1px solid rgba(244,241,236,0.2); color: var(--white);
+    padding: 1rem 2.5rem;
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .hero-scroll {
+    position: absolute; bottom: 3rem; left: 4rem;
+    display: flex; align-items: center; gap: 1rem;
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted);
+    animation: fadeIn 1s 1s ease both;
+  }
+
+  .hero-scroll-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold);
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .intro-strip {
+    background: var(--navy);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 4rem;
+    display: flex; align-items: center; gap: 4rem;
+    overflow-x: auto;
+  }
+
+  .strip-item { display: flex; align-items: center; gap: 1.25rem; flex-shrink: 0; }
+
+  .strip-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 600;
+    color: var(--gold); line-height: 1;
+  }
+
+  .strip-label { font-size: 0.78rem; font-weight: 400; color: var(--muted); line-height: 1.5; max-width: 130px; }
+
+  .strip-sep { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+
+  .section { padding: 7rem 4rem; }
+
+  .section-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .section-eyebrow-line { width: 30px; height: 1px; background: var(--gold); }
+  .section-eyebrow-text {
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400; line-height: 1.2;
+    letter-spacing: -0.01em; margin-bottom: 1.25rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold-lt); }
+
+  .section-desc { font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: var(--muted); max-width: 500px; }
+
+  .direito-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; margin-top: 4.5rem;
+  }
+
+  .direito-card {
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    transition: background 0.25s;
+  }
+
+  .direito-card:hover { background: rgba(201,169,110,0.04); }
+  .direito-card:nth-child(even) { border-left: none; }
+  .direito-card:nth-child(n+3) { border-top: none; }
+
+  .dc-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem; letter-spacing: 0.2em;
+    color: var(--gold); margin-bottom: 1.25rem; display: block;
+  }
+
+  .dc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600;
+    margin-bottom: 0.75rem; line-height: 1.3;
+  }
+
+  .dc-text { font-size: 0.85rem; font-weight: 300; line-height: 1.7; color: var(--muted); }
+
+  .como-section {
+    background: var(--navy);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .como-inner {
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 6rem; align-items: start;
+  }
+
+  .steps-list { margin-top: 3rem; }
+
+  .step {
+    display: grid; grid-template-columns: 48px 1fr;
+    gap: 1.5rem; padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-circle {
+    width: 48px; height: 48px;
+    border: 1px solid var(--border); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; font-weight: 600; color: var(--gold);
+    flex-shrink: 0; background: var(--navy-dk);
+  }
+
+  .step-body h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .step-body p { font-size: 0.83rem; font-weight: 300; line-height: 1.7; color: var(--muted); }
+
+  .quem-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px; background: var(--border);
+    margin-top: 4rem; border: 1px solid var(--border);
+  }
+
+  .quem-item { background: var(--navy-dk); padding: 2.5rem 2rem; transition: background 0.2s; }
+  .quem-item:hover { background: rgba(27,43,56,0.7); }
+
+  .qi-icon { font-size: 1.6rem; margin-bottom: 1.25rem; display: block; }
+
+  .qi-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .qi-text { font-size: 0.82rem; font-weight: 300; line-height: 1.65; color: var(--muted); }
+
+  .cta-band {
+    background: var(--gold); padding: 5rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 3rem; flex-wrap: wrap;
+  }
+
+  .cta-band-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 600;
+    color: var(--navy-dk); line-height: 1.2; margin-bottom: 0.5rem;
+  }
+
+  .cta-band-text p { font-size: 0.9rem; color: rgba(17,30,40,0.65); }
+
+  .btn-dark {
+    background: var(--navy-dk); color: var(--gold);
+    padding: 1.1rem 3rem;
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; white-space: nowrap;
+    transition: background 0.2s; flex-shrink: 0;
+  }
+
+  .btn-dark:hover { background: var(--navy); }
+
+  .contato-section {
+    display: grid; grid-template-columns: 1fr 1fr;
+  }
+
+  .contato-info {
+    background: var(--navy);
+    padding: 5rem 4rem;
+    border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .contato-form-wrap {
+    background: var(--navy-dk);
+    padding: 5rem 4rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .contact-item { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; }
+
+  .contact-icon {
+    width: 44px; height: 44px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); display: block; margin-bottom: 0.25rem;
+  }
+
+  .contact-value { font-size: 0.92rem; font-weight: 300; color: var(--white); line-height: 1.5; }
+  .contact-value a { color: inherit; text-decoration: none; transition: color 0.2s; }
+  .contact-value a:hover { color: var(--gold); }
+
+  .form-group { margin-bottom: 1.25rem; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border); border-radius: 0;
+    padding: 0.85rem 1rem; color: var(--white);
+    font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 300;
+    outline: none; transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--gold); }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-group select option { background: var(--navy-dk); }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .btn-form {
+    background: var(--gold); color: var(--navy-dk); border: none;
+    padding: 1rem 2.5rem;
+    font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    cursor: pointer; width: 100%; margin-top: 0.5rem;
+    transition: background 0.2s;
+  }
+
+  .btn-form:hover { background: var(--gold-lt); }
+
+  footer {
+    background: #0C1520; border-top: 1px solid var(--border);
+    padding: 3rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+
+  .footer-note {
+    font-size: 0.72rem; font-weight: 300;
+    color: rgba(244,241,236,0.3); max-width: 420px;
+    line-height: 1.6; text-align: center;
+  }
+
+  .footer-right { font-size: 0.7rem; color: rgba(244,241,236,0.3); letter-spacing: 0.08em; text-align: right; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.on { opacity: 1; transform: translateY(0); }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .wa-float {
+    position: fixed; bottom: 2rem; right: 2rem;
+    width: 56px; height: 56px; background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    z-index: 500; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+  .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+
+  @media (max-width: 960px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .hero-line, .hero-scroll { display: none; }
+    .intro-strip { padding: 2rem 1.5rem; gap: 2rem; }
+    .section { padding: 4rem 1.5rem; }
+    .direito-grid { grid-template-columns: 1fr; }
+    .direito-card { border: 1px solid var(--border) !important; margin-bottom: -1px; }
+    .como-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .quem-grid { grid-template-columns: 1fr 1fr; }
+    .cta-band { padding: 3rem 1.5rem; flex-direction: column; }
+    .contato-section { grid-template-columns: 1fr; }
+    .contato-info, .contato-form-wrap { padding: 3rem 1.5rem; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    .footer-right, .footer-note { text-align: left; }
+    .form-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .quem-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<a class="wa-float" href="https://wa.me/5569933969597" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<nav>
+  <div class="nav-logo">
+    <span class="nav-logo-main">Herbert &amp; Galeno</span>
+    <span class="nav-logo-sub">Advogados Associados</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#direito">Direitos</a></li>
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#quem">Quem tem direito</a></li>
+    <li><a href="#contato" class="nav-cta">Fale conosco</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <div class="hero-line hero-line-r"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">HG Advocacia · Direito Previdenciário</span>
+    </div>
+    <h1>
+      Você tem direito ao<br>
+      <strong>Salário Maternidade.</strong><br>
+      Nós garantimos isso.
+    </h1>
+    <p class="hero-desc">
+      Muitas mães perdem ou recebem menos do que têm direito por falta de orientação jurídica. A Herbert &amp; Galeno Advogados atua diretamente no reconhecimento, concessão e revisão do salário maternidade junto ao INSS.
+    </p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5569933969597" target="_blank" class="btn-gold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Fale pelo WhatsApp
+      </a>
+      <a href="#direito" class="btn-outline">Entender meus direitos →</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-dot"></div>
+    <span>Role para saber mais</span>
+  </div>
+</section>
+
+<div class="intro-strip">
+  <div class="strip-item reveal"><div class="strip-num">120</div><div class="strip-label">dias de benefício garantidos por lei</div></div>
+  <div class="strip-sep"></div>
+  <div class="strip-item reveal"><div class="strip-num">180</div><div class="strip-label">dias com Empresa Cidadã</div></div>
+  <div class="strip-sep"></div>
+  <div class="strip-item reveal"><div class="strip-num">100%</div><div class="strip-label">do salário mantido sem desconto</div></div>
+  <div class="strip-sep"></div>
+  <div class="strip-item reveal"><div class="strip-num">0</div><div class="strip-label">riscos com orientação jurídica especializada</div></div>
+</div>
+
+<section id="direito" class="section">
+  <div class="section-eyebrow reveal"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">O que você precisa saber</span></div>
+  <h2 class="section-title reveal">Seu direito vai além<br>do que você imagina</h2>
+  <p class="section-desc reveal">O salário maternidade é garantido pela Constituição Federal e pela Lei 8.213/91 — e abrange muito mais do que o parto.</p>
+
+  <div class="direito-grid">
+    <div class="direito-card reveal">
+      <span class="dc-num">01</span>
+      <h3 class="dc-title">Licença de 120 a 180 dias</h3>
+      <p class="dc-text">Trabalhadoras CLT têm direito a 120 dias de afastamento remunerado. Em empresas aderentes ao Empresa Cidadã, esse prazo sobe para 180 dias — sem redução salarial.</p>
+    </div>
+    <div class="direito-card reveal">
+      <span class="dc-num">02</span>
+      <h3 class="dc-title">Autônomas e MEI também têm direito</h3>
+      <p class="dc-text">Contribuintes individuais e MEIs têm direito ao benefício após 10 meses de contribuição. Muitas desconhecem esse direito e acabam não solicitando.</p>
+    </div>
+    <div class="direito-card reveal">
+      <span class="dc-num">03</span>
+      <h3 class="dc-title">Adoção e guarda judicial</h3>
+      <p class="dc-text">Mães adotivas ou que obtiveram guarda judicial também têm direito ao salário maternidade integral, independentemente da idade da criança.</p>
+    </div>
+    <div class="direito-card reveal">
+      <span class="dc-num">04</span>
+      <h3 class="dc-title">Revisão de benefício negado ou reduzido</h3>
+      <p class="dc-text">Se seu pedido foi negado ou o valor veio abaixo do correto, é possível entrar com recurso administrativo ou ação judicial para regularizar sua situação.</p>
+    </div>
+    <div class="direito-card reveal">
+      <span class="dc-num">05</span>
+      <h3 class="dc-title">Estabilidade no emprego</h3>
+      <p class="dc-text">A gestante tem estabilidade desde a confirmação da gravidez até 5 meses após o parto. Demissão nesse período é nula de pleno direito e pode gerar indenização.</p>
+    </div>
+    <div class="direito-card reveal">
+      <span class="dc-num">06</span>
+      <h3 class="dc-title">FGTS preservado durante a licença</h3>
+      <p class="dc-text">Durante toda a licença-maternidade, o empregador é obrigado a continuar depositando o FGTS normalmente. A não observância gera responsabilidade trabalhista.</p>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona" class="section como-section">
+  <div class="como-inner">
+    <div>
+      <div class="section-eyebrow reveal"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Nosso processo</span></div>
+      <h2 class="section-title reveal">Como a HG<br><em>Advocacia</em><br>atua pelo<br>seu caso</h2>
+      <p class="section-desc reveal" style="margin-top:1rem;">Atuamos de forma ágil, transparente e orientada a resultado. Desde o primeiro contato até o recebimento do benefício, você nunca fica sem resposta.</p>
+    </div>
+    <div class="steps-list">
+      <div class="step reveal">
+        <div class="step-circle">01</div>
+        <div class="step-body">
+          <h4>Consulta inicial gratuita</h4>
+          <p>Você entra em contato pelo WhatsApp ou e-mail. Nossa equipe faz uma análise preliminar do seu caso sem nenhum custo.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-circle">02</div>
+        <div class="step-body">
+          <h4>Levantamento documental</h4>
+          <p>Identificamos todos os documentos necessários e orientamos você sobre como obtê-los de forma simples e rápida.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-circle">03</div>
+        <div class="step-body">
+          <h4>Pedido junto ao INSS ou ação judicial</h4>
+          <p>Protocolamos o benefício administrativamente ou ingressamos com ação judicial, conforme a necessidade do caso.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-circle">04</div>
+        <div class="step-body">
+          <h4>Acompanhamento até o recebimento</h4>
+          <p>Monitoramos o andamento, respondemos a eventuais exigências do INSS e garantimos que você receba o que é seu por direito.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quem" class="section">
+  <div class="section-eyebrow reveal"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Elegibilidade</span></div>
+  <h2 class="section-title reveal">Quem tem <em>direito</em><br>ao benefício?</h2>
+  <p class="section-desc reveal">O benefício é mais amplo do que muitos imaginam. Veja se o seu perfil se enquadra.</p>
+
+  <div class="quem-grid">
+    <div class="quem-item reveal">
+      <span class="qi-icon">👩‍💼</span>
+      <h4 class="qi-title">Empregada CLT</h4>
+      <p class="qi-text">Qualquer trabalhadora com carteira assinada tem direito automático, sem carência. O benefício é pago pelo empregador e compensado pelo INSS.</p>
+    </div>
+    <div class="quem-item reveal">
+      <span class="qi-icon">💼</span>
+      <h4 class="qi-title">Autônoma ou MEI</h4>
+      <p class="qi-text">Com pelo menos 10 contribuições mensais ao INSS, a autônoma ou MEI tem direito ao benefício diretamente pela Previdência Social.</p>
+    </div>
+    <div class="quem-item reveal">
+      <span class="qi-icon">🌿</span>
+      <h4 class="qi-title">Trabalhadora Rural</h4>
+      <p class="qi-text">Segurada especial rural tem direito sem carência, com comprovação de atividade rural. Recebe o valor equivalente a 1 salário mínimo.</p>
+    </div>
+    <div class="quem-item reveal">
+      <span class="qi-icon">👨‍👧</span>
+      <h4 class="qi-title">Adoção ou Guarda</h4>
+      <p class="qi-text">Mães adotivas ou guardiãs têm direito ao benefício integral, podendo iniciar o pedido a partir da data da guarda judicial.</p>
+    </div>
+    <div class="quem-item reveal">
+      <span class="qi-icon">🏛️</span>
+      <h4 class="qi-title">Servidora Pública</h4>
+      <p class="qi-text">Servidoras têm regime específico conforme o estatuto do ente, com regras próprias que podem garantir até 180 dias de licença remunerada.</p>
+    </div>
+    <div class="quem-item reveal">
+      <span class="qi-icon">⚖️</span>
+      <h4 class="qi-title">Benefício negado ou revisável</h4>
+      <p class="qi-text">Se você já pediu e foi negada, ou recebeu menos do que deveria, temos solução. É possível reverter administrativamente ou pela via judicial.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-text">
+    <h2>Não perca o que é seu por direito.</h2>
+    <p>Fale agora com um advogado especializado. Atendimento rápido e humanizado.</p>
+  </div>
+  <a href="https://wa.me/5569933969597" target="_blank" class="btn-dark">Iniciar consulta gratuita →</a>
+</div>
+
+<div id="contato" class="contato-section">
+  <div class="contato-info">
+    <div class="section-eyebrow reveal"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Entre em contato</span></div>
+    <h2 class="section-title reveal" style="max-width:320px; margin-bottom:3rem;">Fale com<br><em>nossa equipe</em></h2>
+
+    <div class="contact-item reveal">
+      <div class="contact-icon">📱</div>
+      <div>
+        <span class="contact-label">WhatsApp / Telefone</span>
+        <div class="contact-value"><a href="https://wa.me/5569933969597" target="_blank">+55 (69) 9396-9597</a></div>
+      </div>
+    </div>
+    <div class="contact-item reveal">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <span class="contact-label">E-mail</span>
+        <div class="contact-value"><a href="mailto:herbert@hgadvocacia.adv.br">herbert@hgadvocacia.adv.br</a></div>
+      </div>
+    </div>
+    <div class="contact-item reveal">
+      <div class="contact-icon">⚖️</div>
+      <div>
+        <span class="contact-label">Especialidade</span>
+        <div class="contact-value">Direito Previdenciário<br>Salário Maternidade · INSS</div>
+      </div>
+    </div>
+    <div class="contact-item reveal">
+      <div class="contact-icon">🕐</div>
+      <div>
+        <span class="contact-label">Atendimento</span>
+        <div class="contact-value">Segunda a Sexta, 8h–18h<br>Sábados com hora marcada</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contato-form-wrap">
+    <h3 class="reveal" style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:400; margin-bottom:2rem;">Solicite uma<br><em style="color:var(--gold-lt)">consulta gratuita</em></h3>
+    <form onsubmit="enviarForm(event)">
+      <div class="form-grid">
+        <div class="form-group reveal">
+          <label>Nome completo</label>
+          <input type="text" id="nome" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group reveal">
+          <label>Telefone / WhatsApp</label>
+          <input type="tel" id="telefone" placeholder="(69) 99999-9999" required>
+        </div>
+      </div>
+      <div class="form-group reveal">
+        <label>Situação</label>
+        <select id="situacao">
+          <option value="">Selecione sua situação</option>
+          <option>Sou CLT e quero solicitar o benefício</option>
+          <option>Sou autônoma / MEI</option>
+          <option>Meu pedido foi negado pelo INSS</option>
+          <option>Recebi valor menor do que o correto</option>
+          <option>Sou trabalhadora rural</option>
+          <option>Adoção ou guarda judicial</option>
+          <option>Outra situação</option>
+        </select>
+      </div>
+      <div class="form-group reveal">
+        <label>Mensagem (opcional)</label>
+        <textarea id="mensagem" placeholder="Descreva brevemente sua situação…"></textarea>
+      </div>
+      <button type="submit" class="btn-form reveal">Enviar pelo WhatsApp →</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div style="font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600; letter-spacing:0.2em; color:var(--white); text-transform:uppercase;">HERBERT &amp; GALENO</div>
+    <div style="font-size:0.55rem; letter-spacing:0.28em; color:var(--gold); text-transform:uppercase; margin-top:0.3rem;">Advogados Associados</div>
+  </div>
+  <div class="footer-note">Este site tem caráter informativo e não constitui consultoria jurídica formal. Para análise do seu caso específico, entre em contato com nossa equipe.</div>
+  <div class="footer-right">© 2024 HG Advocacia<br>Todos os direitos reservados</div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('on'), i * 70);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
+
+  function enviarForm(ev) {
+    ev.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const tel = document.getElementById('telefone').value;
+    const sit = document.getElementById('situacao').value;
+    const msg = document.getElementById('mensagem').value;
+    const texto = `Olá! Vim pelo site da HG Advocacia.\n\n*Nome:* ${nome}\n*Telefone:* ${tel}\n*Situação:* ${sit || 'Não informada'}\n` + (msg ? `*Mensagem:* ${msg}` : '');
+    window.open(`https://wa.me/5569933969597?text=${encodeURIComponent(texto)}`, '_blank');
+  }
+</script>
+</body>
+</html>
