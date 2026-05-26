@@ -82,7 +82,7 @@ nav {
   min-height: 100vh;
   display: grid; grid-template-columns: 1.2fr 0.8fr;
   align-items: center;
-  padding: 9rem 4rem 5rem;
+  padding: 7.5rem 4rem 4rem; /* Ajustado para melhor visualização imediata */
   position: relative; overflow: hidden;
 }
 
@@ -113,11 +113,11 @@ nav {
 
 .hero-line-r { left: auto; right: 4rem; }
 
-.hero-inner { max-width: 820px; position: relative; z-index: 2; }
+.hero-inner { max-width: 840px; position: relative; z-index: 2; }
 
 .hero-eyebrow {
   display: flex; align-items: center; gap: 1rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   animation: fadeIn 1s ease both;
 }
 
@@ -131,18 +131,18 @@ nav {
 
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+  font-size: clamp(2.3rem, 5.2vw, 4.5rem);
   font-weight: 300; line-height: 1.15;
   letter-spacing: -0.01em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
   animation: fadeIn 1s 0.2s ease both;
 }
 
 .hero h1 strong { font-weight: 600; font-style: italic; color: var(--gold-lt); }
 
 .hero-desc {
-  font-size: 1rem; font-weight: 300; line-height: 1.8;
-  color: var(--muted); max-width: 580px; margin-bottom: 3rem;
+  font-size: 1.05rem; font-weight: 300; line-height: 1.7;
+  color: var(--white); max-width: 640px; margin-bottom: 2.5rem;
   animation: fadeIn 1s 0.4s ease both;
 }
 
@@ -151,11 +151,11 @@ nav {
   animation: fadeIn 1s 0.6s ease both;
 }
 
-/* Novo Botão Verde Pílula com Ícone do WhatsApp */
+/* Botão Verde Pílula - Sempre Visível no Topo */
 .btn-wa-hero {
   background: #25D366;
   color: #ffffff;
-  padding: 1.1rem 2.8rem;
+  padding: 1.1rem 2.5rem;
   border-radius: 100px;
   font-family: 'Jost', sans-serif;
   font-size: 0.85rem;
@@ -181,20 +181,28 @@ nav {
   fill: currentColor;
 }
 
-.btn-outline {
-  border: 1px solid rgba(244,241,236,0.2); color: var(--white);
+/* Botão de Linkagem para Análise/Questionário */
+.btn-analysis {
+  border: 1px solid var(--gold); 
+  color: var(--gold);
+  background: rgba(201, 169, 110, 0.05);
   padding: 1.1rem 2.2rem;
-  font-size: 0.78rem; font-weight: 500;
-  letter-spacing: 0.15em; text-transform: uppercase;
+  border-radius: 100px;
+  font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
   text-decoration: none;
   display: inline-flex; align-items: center;
-  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-.btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+.btn-analysis:hover { 
+  background: var(--gold); 
+  color: var(--navy-dk); 
+  transform: translateY(-2px); 
+}
 
 .hero-scroll {
-  position: absolute; bottom: 3rem; left: 4rem;
+  position: absolute; bottom: 2rem; left: 4rem;
   display: flex; align-items: center; gap: 1rem;
   font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--muted);
@@ -487,7 +495,7 @@ footer {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Botão Flutuante Pulsante e Animado */
+/* Botão Flutuante Secundário */
 .wa-float {
   position: fixed; bottom: 2rem; right: 2rem;
   width: 64px; height: 64px; background: var(--wa-green);
@@ -515,7 +523,7 @@ footer {
 @media (max-width: 960px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; padding: 8rem 1.5rem 4rem; }
+  .hero { grid-template-columns: 1fr; padding: 7.5rem 1.5rem 4rem; }
   .hero-image-wrap { width: 100%; opacity: 0.15; }
   .hero-line, .hero-scroll { display: none; }
   .topics-strip { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; gap: 1.5rem; }
@@ -535,4 +543,6 @@ footer {
 @media (max-width: 600px) {
   .quem-grid { grid-template-columns: 1fr; }
   .topics-strip { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn-wa-hero, .btn-analysis { justify-content: center; text-align: center; }
 }
