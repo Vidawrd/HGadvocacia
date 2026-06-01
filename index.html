@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get the Fastest Fiber Internet Service | AT&T Fiber</title>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Salário Maternidade — Herbert & Galeno Advogados</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --att-blue:   #0097D7;
-    --att-dark:   #0A192F;
-    --att-light:  #F4F7FC;
-    --deep-blue:  #050C16;
-    --white:      #FFFFFF;
-    --muted:      rgba(255, 255, 255, 0.65);
-    --dark-muted: rgba(10, 25, 47, 0.65);
-    --border:     rgba(0, 151, 215, 0.2);
-    --radius-sm:  12px;
-    --radius-md:  24px;
-    --radius-lg:  36px;
+    --navy:    #1B2B38;
+    --navy-dk: #111E28;
+    --navy-lt: #253545;
+    --gold:    #C9A96E;
+    --gold-lt: #DFC190;
+    --white:   #F4F1EC;
+    --muted:   rgba(244,241,236,0.65);
+    --border:  rgba(201,169,110,0.22);
+    --radius-sm: 8px;
+    --radius-md: 18px;
+    --radius-lg: 30px;
     --radius-full: 9999px;
   }
 
@@ -26,12 +26,20 @@
 
   body {
     font-family: 'Jost', sans-serif;
-    background: var(--att-dark);
+    background: var(--navy-dk);
     color: var(--white);
     overflow-x: hidden;
   }
 
-  /* Header Estilo Pílula Flutuante */
+  /* Ruído de fundo sutil para textura */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1000;
+  }
+
+  /* Header Arredondado em Estilo Pílula Flutuante */
   header {
     position: fixed; top: 1.5rem; left: 0; right: 0; z-index: 200;
     padding: 0 4rem;
@@ -39,39 +47,48 @@
 
   nav {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0.8rem 2.5rem;
-    background: rgba(10, 25, 47, 0.75);
+    padding: 1rem 2.5rem;
+    background: rgba(27, 43, 56, 0.75);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: var(--radius-full);
     max-width: 1400px; margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   }
 
-  .nav-logo { display: flex; align-items: center; gap: 0.5rem; }
-  .nav-logo svg { width: 28px; height: 28px; fill: var(--att-blue); }
-  .nav-logo-text { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; color: var(--white); }
-  .nav-logo-text span { color: var(--att-blue); }
+  .nav-logo { display: flex; flex-direction: column; }
+  .nav-logo-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 600;
+    letter-spacing: 0.15em; color: var(--white);
+    text-transform: uppercase; line-height: 1;
+  }
+  .nav-logo-sub {
+    font-size: 0.58rem; font-weight: 400;
+    letter-spacing: 0.25em; color: var(--gold);
+    text-transform: uppercase; margin-top: 0.25rem;
+  }
 
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a {
-    font-size: 0.85rem; font-weight: 500;
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--muted); text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.2s, opacity 0.2s;
   }
-  .nav-links a:hover { color: var(--att-blue); }
+  .nav-links a:hover { color: var(--gold); }
 
   .nav-cta {
-    background: var(--att-blue);
-    color: var(--white) !important;
-    padding: 0.6rem 1.6rem !important;
+    border: 1px solid var(--gold) !important;
+    color: var(--gold) !important;
+    padding: 0.6rem 1.4rem !important;
     border-radius: var(--radius-full);
-    font-weight: 600 !important;
-    transition: transform 0.2s, background-color 0.2s !important;
+    transition: background 0.2s, color 0.2s, transform 0.2s !important;
   }
   .nav-cta:hover { 
-    background: #0084bc;
+    background: var(--gold) !important; 
+    color: var(--navy-dk) !important;
     transform: scale(1.03);
   }
 
@@ -87,36 +104,41 @@
   .hero-bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(circle at 80% 30%, rgba(0, 151, 215, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 20% 70%, rgba(10, 25, 47, 0.95) 0%, transparent 70%);
+      radial-gradient(ellipse 60% 60% at 75% 45%, rgba(201,169,110,0.09) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 80% at 15% 65%, rgba(27,43,56,0.95) 0%, transparent 75%);
     pointer-events: none;
   }
 
-  .hero-inner { max-width: 900px; position: relative; z-index: 2; margin: 0 auto; width: 100%; }
+  .hero-inner { max-width: 850px; position: relative; z-index: 2; margin: 0 auto; width: 100%; }
 
   .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    background: rgba(0, 151, 215, 0.1);
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 2rem;
+    background: rgba(201, 169, 110, 0.08);
     padding: 0.5rem 1.2rem;
     border-radius: var(--radius-full);
-    border: 1px solid rgba(0, 151, 215, 0.25);
+    border: 1px solid rgba(201, 169, 110, 0.15);
     animation: fadeIn 1s ease both;
   }
-  .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--att-blue); }
-  .hero-eyebrow-text { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--att-blue); }
+  .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .hero-eyebrow-text {
+    font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold);
+  }
 
   .hero h1 {
-    font-size: clamp(2.8rem, 6vw, 4.8rem);
-    font-weight: 700; line-height: 1.1;
-    letter-spacing: -0.02em; margin-bottom: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    font-weight: 300; line-height: 1.15;
+    letter-spacing: -0.01em; margin-bottom: 2rem;
     animation: fadeIn 1s 0.2s ease both;
   }
-  .hero h1 strong { color: var(--att-blue); }
+  .hero h1 strong { font-weight: 600; font-style: italic; color: var(--gold-lt); }
 
   .hero-desc {
-    font-size: 1.1rem; font-weight: 300; line-height: 1.7;
-    color: var(--muted); max-width: 620px; margin-bottom: 3rem;
+    font-size: 1.05rem; font-weight: 300; line-height: 1.8;
+    color: var(--muted); max-width: 600px; margin-bottom: 3.5rem;
     animation: fadeIn 1s 0.4s ease both;
   }
 
@@ -126,139 +148,299 @@
   }
 
   /* Botões Arredondados */
-  .btn-blue {
-    background: var(--att-blue); color: var(--white);
-    padding: 1.1rem 2.8rem; font-size: 0.9rem; font-weight: 600;
+  .btn-gold {
+    background: var(--gold); color: var(--navy-dk);
+    padding: 1.1rem 2.6rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
     text-decoration: none; border-radius: var(--radius-full);
-    display: inline-flex; align-items: center; gap: 0.5rem;
+    display: inline-flex; align-items: center; gap: 0.7rem;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 8px 20px rgba(0, 151, 215, 0.25);
+    box-shadow: 0 4px 15px rgba(201,169,110,0.2);
   }
-  .btn-blue:hover { 
-    background: #0084bc; transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(0, 151, 215, 0.35);
+  .btn-gold:hover { 
+    background: var(--gold-lt); 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(201,169,110,0.3);
   }
 
   .btn-outline {
-    border: 1px solid rgba(255,255,255,0.25); color: var(--white);
-    padding: 1.1rem 2.8rem; font-size: 0.9rem; font-weight: 600;
+    border: 1px solid rgba(244,241,236,0.25); color: var(--white);
+    padding: 1.1rem 2.6rem;
+    font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
     text-decoration: none; border-radius: var(--radius-full);
     transition: border-color 0.2s, color 0.2s, transform 0.2s;
     display: inline-flex; align-items: center;
   }
-  .btn-outline:hover { border-color: var(--att-blue); color: var(--att-blue); transform: translateY(-2px); }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 
-  /* Faixa de Destaques Dinâmica */
-  .strip-container { padding: 0 4rem; margin-bottom: 4rem; }
-  .strip-inner {
-    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  /* Faixa de Destaques Arredondada */
+  .intro-container { padding: 0 4rem; margin-bottom: 4rem; }
+  .intro-strip {
+    background: linear-gradient(135deg, var(--navy), rgba(27,43,56,0.6));
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    padding: 2.5rem;
+    padding: 2.5rem 3rem;
     display: flex; align-items: center; justify-content: space-around;
     gap: 2rem; flex-wrap: wrap;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   }
-  .strip-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .strip-val { font-size: 2.5rem; font-weight: 700; color: var(--att-blue); line-height: 1.1; }
-  .strip-lbl { font-size: 0.85rem; color: var(--muted); margin-top: 0.25rem; font-weight: 400; }
-  .strip-sep { width: 1px; height: 50px; background: var(--border); }
-
-  /* Grid de Planos / Preços */
-  .section { padding: 6rem 4rem; max-width: 1400px; margin: 0 auto; }
-  .section-header { text-align: center; margin-bottom: 4rem; display: flex; flex-direction: column; align-items: center; }
-  .section-title { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 1rem; }
-  .section-desc { color: var(--muted); font-size: 1rem; max-width: 550px; line-height: 1.6; }
-
-  .plans-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
+  .strip-item { display: flex; align-items: center; gap: 1.25rem; }
+  .strip-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 600;
+    color: var(--gold); line-height: 1;
   }
-  .plan-card {
+  .strip-label { font-size: 0.8rem; font-weight: 400; color: var(--muted); line-height: 1.5; max-width: 140px; }
+  .strip-sep { width: 1px; height: 45px; background: var(--border); }
+
+  /* Seções Base */
+  .section { padding: 7rem 4rem; max-width: 1400px; margin: 0 auto; }
+  .section-center { text-align: center; display: flex; flex-direction: column; align-items: center; }
+
+  .section-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;
+    background: rgba(201, 169, 110, 0.06); padding: 0.4rem 1rem; border-radius: var(--radius-full);
+  }
+  .section-eyebrow-text {
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 400; line-height: 1.2;
+    letter-spacing: -0.01em; margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold-lt); font-weight: 500; }
+  .section-desc { font-size: 1rem; font-weight: 300; line-height: 1.8; color: var(--muted); max-width: 550px; }
+
+  /* Grid de Direitos (Cards Arredondados) */
+  .direito-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem; margin-top: 4rem;
+  }
+  .direito-card {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     padding: 3rem 2.5rem;
-    display: flex; flex-direction: column;
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-    position: relative;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    position: relative; overflow: hidden;
   }
-  .plan-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--att-blue);
-    box-shadow: 0 20px 40px rgba(0, 151, 215, 0.15);
+  .direito-card:hover {
+    transform: translateY(-5px);
+    background: rgba(201,169,110,0.04);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border-color: rgba(201,169,110,0.4);
   }
-  .plan-badge {
-    position: absolute; top: 1.5rem; right: 1.5rem;
-    background: var(--att-blue); color: var(--white);
-    padding: 0.3rem 1rem; font-size: 0.75rem; font-weight: 700;
+  .dc-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem; letter-spacing: 0.15em;
+    color: var(--gold); margin-bottom: 1.5rem; display: block;
+    background: rgba(201,169,110,0.1); width: fit-content;
+    padding: 0.2rem 0.6rem; border-radius: var(--radius-full);
+  }
+  .dc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 600;
+    margin-bottom: 1rem; line-height: 1.3;
+  }
+  .dc-text { font-size: 0.9rem; font-weight: 300; line-height: 1.7; color: var(--muted); }
+
+  /* Bloco de Processos (Estilo Container Arredondado) */
+  .como-container { padding: 0 4rem 4rem; }
+  .como-section {
+    background: linear-gradient(145deg, var(--navy), #14222d);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 5rem 4rem;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+  }
+  .como-inner {
+    display: grid; grid-template-columns: 1fr 1.3fr;
+    gap: 5rem; align-items: center;
+  }
+  .steps-list { display: flex; flex-direction: column; gap: 1rem; }
+  .step {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 1.5rem; padding: 1.8rem;
+    background: rgba(17,30,40,0.4);
+    border: 1px solid rgba(201,169,110,0.1);
+    border-radius: var(--radius-md);
+    transition: border-color 0.2s;
+  }
+  .step:hover { border-color: rgba(201,169,110,0.3); }
+  .step-circle {
+    width: 44px; height: 44px;
+    border-radius: 50%; background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--navy-dk);
+    box-shadow: 0 4px 10px rgba(201,169,110,0.2);
+  }
+  .step-body h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .step-body p { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: var(--muted); }
+
+  /* Grid Elegibilidade (Cards Ovais/Suaves) */
+  .quem-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem; margin-top: 4rem;
+  }
+  .quem-item {
+    background: rgba(255,255,255,0.01);
+    padding: 3rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .quem-item:hover {
+    background: rgba(27,43,56,0.6);
+    transform: scale(1.02);
+  }
+  .qi-icon {
+    font-size: 1.8rem; margin: 0 auto 1.25rem; display: flex;
+    align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.03); width: 60px; height: 60px;
+    border-radius: 50%; border: 1px solid rgba(201,169,110,0.15);
+  }
+  .qi-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 0.75rem; }
+  .qi-text { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: var(--muted); }
+
+  /* Faixa de CTA Interna Arredondada */
+  .cta-band-container { padding: 0 4rem 4rem; }
+  .cta-band {
+    background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+    padding: 4rem; border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 3rem; flex-wrap: wrap;
+    box-shadow: 0 15px 35px rgba(201,169,110,0.15);
+  }
+  .cta-band-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600;
+    color: var(--navy-dk); line-height: 1.2; margin-bottom: 0.5rem;
+  }
+  .cta-band-text p { font-size: 0.95rem; color: rgba(17,30,40,0.75); font-weight: 400; }
+  .btn-dark {
+    background: var(--navy-dk); color: var(--gold);
+    padding: 1.1rem 2.8rem;
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; white-space: nowrap;
     border-radius: var(--radius-full);
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   }
-  .plan-speed { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
-  .plan-speed span { font-size: 1rem; color: var(--att-blue); font-weight: 500; }
-  .plan-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--white); }
-  .plan-price { font-size: 3rem; font-weight: 700; color: var(--white); margin-bottom: 1.5rem; display: flex; align-items: baseline; }
-  .plan-price span { font-size: 1rem; color: var(--muted); font-weight: 400; margin-left: 0.25rem; }
-  
-  .plan-features { list-style: none; margin-bottom: 2.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
-  .plan-features li { font-size: 0.9rem; color: var(--muted); display: flex; align-items: center; gap: 0.6rem; }
-  .plan-features li::before { content: '✓'; color: var(--att-blue); font-weight: 700; }
+  .btn-dark:hover { background: var(--navy); transform: translateY(-2px); }
 
-  .btn-plan {
-    background: transparent; color: var(--white);
-    border: 1px solid var(--border); padding: 1rem;
-    border-radius: var(--radius-full); font-weight: 600; text-align: center;
-    text-decoration: none; margin-top: auto; transition: all 0.2s;
+  /* Bloco de Contato Unificado e Arredondado */
+  .contato-container { padding: 0 4rem 6rem; }
+  .contato-section {
+    display: grid; grid-template-columns: 1fr 1.1fr;
+    background: var(--navy);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
   }
-  .plan-card:hover .btn-plan {
-    background: var(--att-blue); border-color: var(--att-blue);
+  .contato-info { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+  .contato-form-wrap {
+    background: rgba(17,30,40,0.5);
+    padding: 5rem 4rem; border-left: 1px solid var(--border);
+    display: flex; flex-direction: column; justify-content: center;
   }
 
-  /* Bloco de Recursos (Vantagens) */
-  .features-container { padding: 0 4rem 4rem; }
-  .features-inner {
-    background: var(--white); color: var(--att-dark);
-    border-radius: var(--radius-lg); padding: 5rem 4rem;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  .contact-item { display: flex; gap: 1.25rem; margin-bottom: 2rem; align-items: center; }
+  .contact-icon {
+    width: 46px; height: 46px;
+    border-radius: 50%; background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
   }
-  .features-inner .section-title { color: var(--att-dark); }
-  .features-inner .section-desc { color: var(--dark-muted); }
-  
-  .features-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem; margin-top: 4rem;
+  .contact-label {
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); display: block; margin-bottom: 0.2rem;
   }
-  .feature-item {
-    background: var(--att-light); padding: 2.5rem 2rem;
-    border-radius: var(--radius-md); transition: transform 0.2s;
-  }
-  .feature-item:hover { transform: scale(1.02); }
-  .feature-icon {
-    width: 50px; height: 50px; background: rgba(0, 151, 215, 0.1);
-    color: var(--att-blue); border-radius: 50%; display: flex;
-    align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem;
-  }
-  .feature-item h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--att-dark); }
-  .feature-item p { font-size: 0.9rem; color: var(--dark-muted); line-height: 1.6; }
+  .contact-value { font-size: 0.95rem; font-weight: 300; color: var(--white); }
+  .contact-value a { color: inherit; text-decoration: none; transition: color 0.2s; }
+  .contact-value a:hover { color: var(--gold); }
 
-  /* Footer */
+  /* Formulário Arredondado */
+  .form-group { margin-bottom: 1.5rem; }
+  .form-group label {
+    display: block; font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%; background: rgba(17,30,40,0.6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1.2rem; color: var(--white);
+    font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 300;
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,169,110,0.15);
+  }
+  .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23C9A96E' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C2.185 5.355 2.4 4.9 2.81 4.9h9.578a.427.427 0 0 1 .327.71l-4.796 5.48a.577.577 0 0 1-.846 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: calc(100% - 1.2rem) center; }
+  .form-group select option { background: var(--navy-dk); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+  .btn-form {
+    background: var(--gold); color: var(--navy-dk); border: none;
+    padding: 1.1rem; border-radius: var(--radius-full);
+    font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; width: 100%; margin-top: 0.5rem;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(201,169,110,0.2);
+  }
+  .btn-form:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+  /* Rodapé */
   footer {
-    background: var(--deep-blue); border-top: 1px solid var(--border);
-    padding: 4rem; display: flex; justify-content: space-between;
-    align-items: center; flex-wrap: wrap; gap: 2rem;
+    background: #091016; border-top: 1px solid var(--border);
+    padding: 3.5rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 2rem;
   }
-  .footer-left .nav-logo-text { font-size: 1.1rem; }
-  .footer-note { font-size: 0.75rem; color: var(--muted); max-width: 500px; line-height: 1.6; }
-  .footer-right { font-size: 0.75rem; color: var(--muted); text-align: right; }
+  .footer-note { font-size: 0.75rem; font-weight: 300; color: rgba(244,241,236,0.35); max-width: 460px; line-height: 1.6; }
+  .footer-right { font-size: 0.75rem; color: rgba(244,241,236,0.35); letter-spacing: 0.05em; text-align: right; line-height: 1.5; }
 
-  /* Animações scroll */
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  /* Efeito de Scroll Suave */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
   .reveal.on { opacity: 1; transform: translateY(0); }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+
+  /* Botão Flutuante do WhatsApp */
+  .wa-float {
+    position: fixed; bottom: 2rem; right: 2rem;
+    width: 58px; height: 58px; background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+    z-index: 500; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .wa-float:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 14px 35px rgba(37,211,102,0.4.5); }
+  .wa-float svg { width: 28px; height: 28px; fill: #fff; }
 
   /* Responsividade */
   @media (max-width: 1024px) {
@@ -268,34 +450,45 @@
     .hero { padding: 8rem 1.5rem 4rem; text-align: center; }
     .hero-inner { display: flex; flex-direction: column; align-items: center; }
     .hero-actions { justify-content: center; }
-    .strip-container, .features-container { padding: 0 1.5rem 3rem; }
-    .strip-inner { padding: 1.5rem; gap: 1.5rem; }
+    .hero-desc { margin-bottom: 2.5rem; }
+    .intro-container, .como-container, .cta-band-container, .contato-container { padding: 0 1.5rem 3rem; }
+    .intro-strip { padding: 2rem; gap: 1.5rem; justify-content: grid; }
     .strip-sep { display: none; }
     .section { padding: 4rem 1.5rem; }
-    .features-inner { padding: 4rem 2rem; }
-    footer { padding: 3rem 1.5rem; flex-direction: column; align-items: flex-start; text-align: left; }
+    .como-section { padding: 4rem 2rem; }
+    .como-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .contato-section { grid-template-columns: 1fr; }
+    .contato-form-wrap { border-left: none; border-top: 1px solid var(--border); padding: 4rem 2rem; }
+    .contato-info { padding: 4rem 2rem; }
+    footer { padding: 3rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
     .footer-right { text-align: left; }
   }
 
-  @media (max-width: 480px) {
-    .btn-blue, .btn-outline { width: 100%; justify-content: center; }
+  @media (max-width: 640px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .cta-band { padding: 2.5rem 2rem; text-align: center; justify-content: center; }
+    .btn-dark, .btn-gold, .btn-outline { width: 100%; justify-content: center; }
   }
 </style>
 </head>
 <body>
 
+<a class="wa-float" href="https://wa.me/5569933969597" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
 <header>
   <nav>
     <div class="nav-logo">
-      <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.523 0-10-4.477-10-10S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-      <div class="nav-logo-text">AT&T <span>Fiber</span></div>
+      <span class="nav-logo-main">Herbert &amp; Galeno</span>
+      <span class="nav-logo-sub">Advogados Associados</span>
     </div>
     <ul class="nav-links">
-      <li><a href="#plans">Plans</a></li>
-      <li><a href="#advantages">Advantages</a></li>
-      <li><a href="#coverage">Coverage</a></li>
+      <li><a href="#direito">Direitos</a></li>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#quem">Quem tem direito</a></li>
+      <li><a href="#contato" class="nav-cta">Fale conosco</a></li>
     </ul>
-    <a href="#plans" class="nav-cta">Check Availability</a>
   </nav>
 </header>
 
@@ -304,132 +497,276 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-dot"></div>
-      <span class="hero-eyebrow-text">Next-Level Connectivity</span>
+      <span class="hero-eyebrow-text">HG Advocacia · Direito Previdenciário</span>
     </div>
     <h1>
-      Get the Fastest<br>
-      <strong>Fiber Internet</strong> Service.
+      Você tem direito ao<br>
+      <strong>Salário Maternidade.</strong><br>
+      Nós garantimos isso.
     </h1>
     <p class="hero-desc">
-      Is your internet keeping up with you? Stream, game, and work with ultra-reliable AT&T Fiber. Heavy usage, multiple devices—no problem.
+      Muitas mães perdem ou recebem menos do que têm direito por falta de orientação jurídica. A Herbert &amp; Galeno Advogados atua diretamente no reconhecimento, concessão e revisão do salário maternidade junto ao INSS.
     </p>
     <div class="hero-actions">
-      <a href="#plans" class="btn-blue">View Fiber Plans</a>
-      <a href="#advantages" class="btn-outline">Why AT&T Fiber? →</a>
+      <a href="https://wa.me/5569933969597" target="_blank" class="btn-gold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Fale pelo WhatsApp
+      </a>
+      <a href="#direito" class="btn-outline">Entender meus direitos →</a>
     </div>
   </div>
 </section>
 
-<div class="strip-container">
-  <div class="strip-inner">
-    <div class="strip-item reveal"><div class="strip-val">99%</div><div class="strip-lbl">Reliability Guarantee</div></div>
+<div class="intro-container">
+  <div class="intro-strip">
+    <div class="strip-item reveal"><div class="strip-num">120</div><div class="strip-label">dias de benefício garantidos por lei</div></div>
     <div class="strip-sep"></div>
-    <div class="strip-item reveal"><div class="strip-val">25x</div><div class="strip-lbl">Faster upload speeds than cable</div></div>
+    <div class="strip-item reveal"><div class="strip-num">180</div><div class="strip-label">dias com Empresa Cidadã</div></div>
     <div class="strip-sep"></div>
-    <div class="strip-item reveal"><div class="strip-val">$0</div><div class="strip-lbl">Data caps or overage fees</div></div>
+    <div class="strip-item reveal"><div class="strip-num">100%</div><div class="strip-label">do salário mantido sem desconto</div></div>
+    <div class="strip-sep"></div>
+    <div class="strip-item reveal"><div class="strip-num">0</div><div class="strip-label">riscos com orientação jurídica especializada</div></div>
   </div>
 </div>
 
-<section class="section" id="plans">
-  <div class="section-header">
-    <h2 class="section-title">Choose Your Speed</h2>
-    <p class="section-desc">Simple pricing. No annual contract. No equipment fees. Pick the perfect fiber plan for your home.</p>
+<section id="direito" class="section">
+  <div class="section-center">
+    <div class="section-eyebrow reveal"><span class="section-eyebrow-text">O que você precisa saber</span></div>
+    <h2 class="section-title reveal">Seu direito vai além<br>do que você imagina</h2>
+    <p class="section-desc reveal">O salário maternidade é garantido pela Constituição Federal e pela Lei 8.213/91 — e abrange muito mais do que o parto.</p>
   </div>
 
-  <div class="plans-grid">
-    <div class="plan-card reveal">
-      <div class="plan-speed">300 <span>Mbps</span></div>
-      <div class="plan-name">Great for everyday use</div>
-      <div class="plan-price">$55<span>/mo</span></div>
-      <ul class="plan-features">
-        <li>Connect up to 10+ devices</li>
-        <li>Unlimited internet data included</li>
-        <li>Symmetrical upload/download speeds</li>
-      </ul>
-      <a href="#" class="btn-plan">Select Plan</a>
+  <div class="direito-grid">
+    <div class="direito-card reveal">
+      <span class="dc-num">01</span>
+      <h3 class="dc-title">Licença de 120 a 180 dias</h3>
+      <p class="dc-text">Trabalhadoras CLT têm direito a 120 dias de afastamento remunerado. Em empresas aderentes ao Empresa Cidadã, esse prazo sobe para 180 dias — sem redução salarial.</p>
     </div>
-
-    <div class="plan-card reveal">
-      <div class="plan-badge">Most Popular</div>
-      <div class="plan-speed">500 <span>Mbps</span></div>
-      <div class="plan-name">Perfect for avid streaming</div>
-      <div class="plan-price">$65<span>/mo</span></div>
-      <ul class="plan-features">
-        <li>Connect up to 20+ devices</li>
-        <li>Faster gaming & crisp 4K streaming</li>
-        <li>Active security protection included</li>
-      </ul>
-      <a href="#" class="btn-plan">Select Plan</a>
+    <div class="direito-card reveal">
+      <span class="dc-num">02</span>
+      <h3 class="dc-title">Autônomas e MEI também têm direito</h3>
+      <p class="dc-text">Contribuintes individuais e MEIs têm direito ao benefício após 10 meses de contribuição. Muitas desconhecem esse direito e acabam não solicitando.</p>
     </div>
-
-    <div class="plan-card reveal">
-      <div class="plan-speed">1 <span>Gig</span></div>
-      <div class="plan-name">Ultimate multi-device power</div>
-      <div class="plan-price">$80<span>/mo</span></div>
-      <ul class="plan-features">
-        <li>Connect 30+ devices simultaneously</li>
-        <li>Pro-level gaming & instant downloads</li>
-        <li>Next-gen Wi-Fi gateway hardware</li>
-      </ul>
-      <a href="#" class="btn-plan">Select Plan</a>
+    <div class="direito-card reveal">
+      <span class="dc-num">03</span>
+      <h3 class="dc-title">Adoção e guarda judicial</h3>
+      <p class="dc-text">Mães adotivas ou que obtiveram guarda judicial também têm direito ao salário maternidade integral, independentemente da idade da criança.</p>
+    </div>
+    <div class="direito-card reveal">
+      <span class="dc-num">04</span>
+      <h3 class="dc-title">Revisão de benefício negado ou reduzido</h3>
+      <p class="dc-text">Se seu pedido foi negado ou o valor veio abaixo do correto, é possível entrar com recurso administrativo ou ação judicial para regularizar sua situação.</p>
+    </div>
+    <div class="direito-card reveal">
+      <span class="dc-num">05</span>
+      <h3 class="dc-title">Estabilidade no emprego</h3>
+      <p class="dc-text">A gestante tem estabilidade desde a confirmação da gravidez até 5 meses após o parto. Demissão nesse período é nula de pleno direito e pode gerar indenização.</p>
+    </div>
+    <div class="direito-card reveal">
+      <span class="dc-num">06</span>
+      <h3 class="dc-title">FGTS preservado durante a licença</h3>
+      <p class="dc-text">Durante toda a licença-maternidade, o empregador é obrigado a continuar depositando o FGTS normalmente. A não observância gera responsabilidade trabalhista.</p>
     </div>
   </div>
 </section>
 
-<div class="features-container" id="advantages">
-  <div class="features-inner">
-    <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <h2 class="section-title">The Fiber Difference</h2>
-      <p class="section-desc">Traditional cable networks just can't keep up with pure fiber optic technology built for the modern digital era.</p>
+<div class="como-container" id="como-funciona">
+  <div class="como-section">
+    <div class="como-inner">
+      <div>
+        <div class="section-eyebrow reveal"><span class="section-eyebrow-text">Nosso processo</span></div>
+        <h2 class="section-title reveal">Como a HG<br><em>Advocacia</em><br>atua pelo<br>seu caso</h2>
+        <p class="section-desc reveal">Atuamos de forma ágil, transparente e orientada a resultado. Desde o primeiro contato até o recebimento do benefício, você nunca fica sem resposta.</p>
+      </div>
+      <div class="steps-list">
+        <div class="step reveal">
+          <div class="step-circle">1</div>
+          <div class="step-body">
+            <h4>Consulta inicial gratuita</h4>
+            <p>Você entra em contato pelo WhatsApp ou e-mail. Nossa equipe faz uma análise preliminar do seu caso sem nenhum custo.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-circle">2</div>
+          <div class="step-body">
+            <h4>Levantamento documental</h4>
+            <p>Identificamos todos os documentos necessários e orientamos você sobre como obtê-los de forma simples e rápida.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-circle">3</div>
+          <div class="step-body">
+            <h4>Pedido junto ao INSS ou ação judicial</h4>
+            <p>Protocolamos o benefício administrativamente ou ingressamos com ação judicial, conforme a necessidade do caso.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-circle">4</div>
+          <div class="step-body">
+            <h4>Acompanhamento até o recebimento</h4>
+            <p>Monitoramos o andamento, respondemos a eventuais exigências do INSS e garantimos que você receba o que é seu por direito.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="quem" class="section">
+  <div class="section-center">
+    <div class="section-eyebrow reveal"><span class="section-eyebrow-text">Elegibilidade</span></div>
+    <h2 class="section-title reveal">Quem tem <em>direito</em><br>ao benefício?</h2>
+    <p class="section-desc reveal">O benefício é mais amplo do que muitos imaginam. Veja se o seu perfil se enquadra.</p>
+  </div>
+
+  <div class="quem-grid">
+    <div class="quem-item reveal">
+      <div class="qi-icon">👩‍💼</div>
+      <h4 class="qi-title">Empregada CLT</h4>
+      <p class="qi-text">Qualquer trabalhadora com carteira assinada tem direito automático, sem carência. O benefício é pago pelo empregador e compensado pelo INSS.</p>
+    </div>
+    <div class="quem-item reveal">
+      <div class="qi-icon">💼</div>
+      <h4 class="qi-title">Autônoma ou MEI</h4>
+      <p class="qi-text">Com pelo menos 10 contribuições mensais ao INSS, a autônoma ou MEI tem direito ao benefício diretamente pela Previdência Social.</p>
+    </div>
+    <div class="quem-item reveal">
+      <div class="qi-icon">🌿</div>
+      <h4 class="qi-title">Trabalhadora Rural</h4>
+      <p class="qi-text">Segurada especial rural tem direito sem carência, com comprovação de atividade rural. Recebe o valor equivalente a 1 salário mínimo.</p>
+    </div>
+    <div class="quem-item reveal">
+      <div class="qi-icon">👨‍👧</div>
+      <h4 class="qi-title">Adoção ou Guarda</h4>
+      <p class="qi-text">Mães adotivas ou guardiãs têm direito ao benefício integral, podendo iniciar o pedido a partir da data da guarda judicial.</p>
+    </div>
+    <div class="quem-item reveal">
+      <div class="qi-icon">🏛️</div>
+      <h4 class="qi-title">Servidora Pública</h4>
+      <p class="qi-text">Servidoras têm regime específico conforme o estatuto do ente, com regras próprias que podem garantir até 180 dias de licença remunerada.</p>
+    </div>
+    <div class="quem-item reveal">
+      <div class="qi-icon">⚖️</div>
+      <h4 class="qi-title">Benefício negado ou revisável</h4>
+      <p class="qi-text">Se você já pediu e foi negada, ou recebeu menos do que deveria, temos solução. É possível reverter administrativamente ou pela via judicial.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band-container">
+  <div class="cta-band">
+    <div class="cta-band-text">
+      <h2>Não perca o que é seu por direito.</h2>
+      <p>Fale agora com um advogado especializado. Atendimento rápido e humanizado.</p>
+    </div>
+    <a href="https://wa.me/5569933969597" target="_blank" class="btn-dark">Iniciar consulta gratuita →</a>
+  </div>
+</div>
+
+<div class="contato-container" id="contato">
+  <div class="contato-section">
+    <div class="contato-info">
+      <div class="section-eyebrow reveal"><span class="section-eyebrow-text">Entre em contato</span></div>
+      <h2 class="section-title reveal" style="max-width:340px; margin-bottom:3rem;">Fale com<br><em>nossa equipe</em></h2>
+
+      <div class="contact-item reveal">
+        <div class="contact-icon">📱</div>
+        <div>
+          <span class="contact-label">WhatsApp / Telefone</span>
+          <div class="contact-value"><a href="https://wa.me/5569933969597" target="_blank">+55 (69) 9396-9597</a></div>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <span class="contact-label">E-mail</span>
+          <div class="contact-value"><a href="mailto:herbert@hgadvocacia.adv.br">herbert@hgadvocacia.adv.br</a></div>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">⚖️</div>
+        <div>
+          <span class="contact-label">Especialidade</span>
+          <div class="contact-value">Direito Previdenciário<br>Salário Maternidade · INSS</div>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <span class="contact-label">Atendimento</span>
+          <div class="contact-value">Segunda a Sexta, 8h–18h<br>Sábados com hora marcada</div>
+        </div>
+      </div>
     </div>
 
-    <div class="features-grid">
-      <div class="feature-item reveal">
-        <div class="feature-icon">⚡</div>
-        <h3>Equal Uploads & Downloads</h3>
-        <p>Unlike cable, our fiber gives you upload speeds just as fast as downloads. Perfect for seamless video calls and large file uploads.</p>
-      </div>
-      <div class="feature-item reveal">
-        <div class="feature-icon">🎮</div>
-        <h3>Ultra-Low Lag</h3>
-        <p>Get a highly competitive edge with lower ping. Experience real-time responsiveness when gaming online or working remotely.</p>
-      </div>
-      <div class="feature-item reveal">
-        <div class="feature-icon">🛡️</div>
-        <h3>Smart Security</h3>
-        <p>Continuous threat monitoring and network-level defense tools keep your smart household gadgets safe automatically.</p>
-      </div>
+    <div class="contato-form-wrap">
+      <h3 class="reveal" style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:400; margin-bottom:2rem;">Solicite uma<br><em style="color:var(--gold-lt)">consulta gratuita</em></h3>
+      <form onsubmit="enviarForm(event)">
+        <div class="form-grid">
+          <div class="form-group reveal">
+            <label>Nome completo</label>
+            <input type="text" id="nome" placeholder="Seu nome" required>
+          </div>
+          <div class="form-group reveal">
+            <label>Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" placeholder="(69) 99999-9999" required>
+          </div>
+        </div>
+        <div class="form-group reveal">
+          <label>Situação</label>
+          <select id="situacao">
+            <option value="">Selecione sua situação</option>
+            <option>Sou CLT e quero solicitar o benefício</option>
+            <option>Sou autônoma / MEI</option>
+            <option>Meu pedido foi negado pelo INSS</option>
+            <option>Recebi valor menor do que o correto</option>
+            <option>Sou trabalhadora rural</option>
+            <option>Adoção ou guarda judicial</option>
+            <option>Outra situação</option>
+          </select>
+        </div>
+        <div class="form-group reveal">
+          <label>Mensagem (opcional)</label>
+          <textarea id="mensagem" placeholder="Descreva brevemente sua situação…"></textarea>
+        </div>
+        <button type="submit" class="btn-form reveal">Enviar pelo WhatsApp →</button>
+      </form>
     </div>
   </div>
 </div>
 
 <footer>
-  <div class="footer-left">
-    <div class="nav-logo">
-      <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.523 0-10-4.477-10-10S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-      <div class="nav-logo-text">AT&T <span>Fiber</span></div>
-    </div>
+  <div>
+    <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; letter-spacing:0.15em; color:var(--white); text-transform:uppercase;">HERBERT &amp; GALENO</div>
+    <div style="font-size:0.58rem; letter-spacing:0.22em; color:var(--gold); text-transform:uppercase; margin-top:0.25rem;">Advogados Associados</div>
   </div>
-  <div class="footer-note">
-    Offers vary by location. Pricing excludes local taxes and fees. Speed tiers reflect maximum network capabilities. Actual user speeds may vary based on structural factors and device limitations.
-  </div>
-  <div class="footer-right">
-    © 2026 AT&T Intellectual Property.<br>All rights reserved.
-  </div>
+  <div class="footer-note">Este site tem caráter informativo e não constitui consultoria jurídica formal. Para análise do seu caso específico, entre em contato com nossa equipe.</div>
+  <div class="footer-right">© 2024 HG Advocacia<br>Todos os direitos reservados</div>
 </footer>
 
 <script>
-  // Monitor de scroll simples para animação dinâmicas dos elementos (.reveal)
+  // Efeito reveal ao scrollar
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('on'), i * 50);
+        setTimeout(() => e.target.classList.add('on'), i * 60);
         io.unobserve(e.target);
       }
     });
   }, { threshold: 0.05 });
   reveals.forEach(el => io.observe(el));
+
+  // Integração com WhatsApp
+  function enviarForm(ev) {
+    ev.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const tel = document.getElementById('telefone').value;
+    const sit = document.getElementById('situacao').value;
+    const msg = document.getElementById('mensagem').value;
+    const texto = `Olá! Vim pelo site da HG Advocacia.\n\n*Nome:* ${nome}\n*Telefone:* ${tel}\n*Situação:* ${sit || 'Não informada'}\n` + (msg ? `*Mensagem:* ${msg}` : '');
+    window.open(`https://wa.me/5569933969597?text=${encodeURIComponent(texto)}`, '_blank');
+  }
 </script>
 </body>
 </html>
