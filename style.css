@@ -80,29 +80,18 @@ nav {
 
 .hero {
   min-height: 100vh;
-  display: grid; grid-template-columns: 1.2fr 0.8fr;
+  display: grid; 
+  grid-template-columns: 1.2fr 0.8fr;
   align-items: center;
   padding: 7.5rem 4rem 4rem;
-  position: relative; overflow: hidden;
+  position: relative; 
+  overflow: hidden;
+  /* Fundo Escuro com Fusão da Imagem e URL da grávida */
+  background: linear-gradient(to right, var(--navy-dk) 45%, rgba(17,30,40, 0.1) 100%), url('https://images.unsplash.com/photo-1551556729-c8dd42a44c82?q=80&w=1200&auto=format&fit=crop');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
 }
-
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 60% at 80% 40%, rgba(201,169,110,0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 80% at 10% 60%, rgba(27,43,56,0.9) 0%, transparent 80%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero-image-wrap {
-  position: absolute; top: 0; right: 0; width: 45%; height: 100%;
-  z-index: 0; opacity: 0.4;
-  mask-image: linear-gradient(to left, black 60%, transparent);
-  -webkit-mask-image: linear-gradient(to left, black 60%, transparent);
-}
-
-.hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
 .hero-line {
   position: absolute; top: 0; bottom: 0; left: 4rem;
@@ -138,7 +127,7 @@ nav {
   animation: fadeIn 1s 0.2s ease both;
 }
 
-.hero h1 strong { font-weight: 600; font-style: italic; color: var(--gold-lt); }
+.hero h1 strong { font-weight: 600; font-style: italic; color: var(--gold-lt); display: block; margin-bottom: 0.5rem; }
 
 .hero-desc {
   font-size: 1.05rem; font-weight: 300; line-height: 1.7;
@@ -151,7 +140,6 @@ nav {
   animation: fadeIn 1s 0.6s ease both;
 }
 
-/* Botão Verde Pílula - Visível Imediatamente */
 .btn-wa-hero {
   background: #25D366;
   color: #ffffff;
@@ -175,13 +163,8 @@ nav {
   box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
 }
 
-.btn-wa-hero svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-}
+.btn-wa-hero i { font-size: 1rem; }
 
-/* Botão de Linkagem para o Formulário */
 .btn-analysis {
   border: 1px solid var(--gold); 
   color: var(--gold);
@@ -234,9 +217,11 @@ nav {
 }
 
 .topic-icon {
-  width: 48px; height: 48px;
+  font-size: 1.75rem;
   margin-bottom: 1rem;
   color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  height: 40px;
 }
 
 .topic-title {
@@ -359,7 +344,9 @@ nav {
 
 .qi-icon { 
   display: block;
-  margin-bottom: 1.25rem; 
+  margin-bottom: 1.1rem;
+  font-size: 2rem;
+  color: var(--gold);
 }
 
 .qi-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
@@ -462,7 +449,8 @@ nav {
   width: 44px; height: 44px;
   border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; flex-shrink: 0;
+  font-size: 1.25rem; flex-shrink: 0;
+  color: var(--gold);
 }
 
 .contact-label {
@@ -498,7 +486,6 @@ footer {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Botão Flutuante Pulsante */
 .wa-float {
   position: fixed; bottom: 2rem; right: 2rem;
   width: 64px; height: 64px; background: var(--wa-green);
@@ -521,12 +508,19 @@ footer {
   100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 8px 32px rgba(0,0,0,0.35); }
 }
 
-.wa-float svg { width: 32px; height: 32px; fill: #fff; }
+.wa-float i { font-size: 2rem; color: #fff; }
 
 @media (max-width: 960px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; padding: 7.5rem 1.5rem 4rem; }
+  
+  /* Ajuste no hero no mobile para o background continuar legal */
+  .hero { 
+      grid-template-columns: 1fr; 
+      padding: 7.5rem 1.5rem 4rem; 
+      background-position: 70% center; /* Ajusta o foco da imagem no celular */
+  }
+  
   .hero-image-wrap { width: 100%; opacity: 0.15; }
   .hero-line, .hero-scroll { display: none; }
   .topics-strip { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; gap: 1.5rem; }
