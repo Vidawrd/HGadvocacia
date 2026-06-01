@@ -6,7 +6,6 @@
     <title>Salário Maternidade — Herbert & Galeno Advogados</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 
     <style>
@@ -143,14 +142,19 @@
 
         .hero h1 {
           font-family: 'Cormorant Garamond', serif;
-          font-size: clamp(2.3rem, 5.2vw, 4.5rem);
-          font-weight: 300; line-height: 1.15;
+          font-size: clamp(2.2rem, 4.8vw, 4rem);
+          font-weight: 300; line-height: 1.25;
           letter-spacing: -0.01em;
           margin-bottom: 1.8rem;
           animation: fadeIn 1s 0.2s ease both;
         }
 
-        .hero h1 strong { font-weight: 600; font-style: italic; color: var(--gold-lt); }
+        .hero h1 strong { 
+          font-weight: 700; 
+          color: var(--gold-lt); 
+          display: block;
+          margin-bottom: 0.5rem;
+        }
 
         .hero-desc {
           font-size: 1.05rem; font-weight: 300; line-height: 1.7;
@@ -583,7 +587,7 @@
 <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-image-wrap">
-        <img alt="Mãe segurando a barriga" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3vgxWBoRAtEsKJEOJo9PHge-xOAAdUj_bgMJX_y_wvochzj3cgTckLiaFJ2xuN9rkuHBXwYbEfXn7Ul27k6hynhyrmc4quqPg0KjQp6WcGe__Ng69ctugHmVFMXtPPpXYIn36vAofaGR8zJzG85Zx_UvvXn79t7Rbiom314kSVoDdZZXoJ1xvF8k60oZpS-McufIlqvGDEa1T3lnFG4DmGs84VnyIoVUyfjQUARpDu7dCN_DakD_n98cMDv4WFtbUDyjJlwbevWzc"/>
+        <img alt="Mãe segurando a barriga" src="https://images.unsplash.com/photo-1551556729-c8dd42a44c82?q=80&w=1200&auto=format&fit=crop"/>
     </div>
     <div class="hero-line"></div>
     <div class="hero-line hero-line-r"></div>
@@ -593,9 +597,8 @@
             <span class="hero-eyebrow-text">Advocacia Previdenciária Especializada</span>
         </div>
         <h1>
-            Você tem direito ao<br/>
-            <strong>Salário Maternidade.</strong><br/>
-            Nós analisamos e defendemos o seu direito.
+            <strong>Salário-Maternidade:</strong>
+            está grávida, nunca contribuiu com o INSS você tem direito ao Salário Maternidade.
         </h1>
         <p class="hero-desc">
             Desempregadas, trabalhadoras CLT e beneficiárias do Bolsa Família com filhos de até 5 anos podem receber até R$ 6.484,00 do governo federal. Faça a análise agora.
@@ -603,7 +606,7 @@
         <div class="hero-actions">
             <a class="btn-wa-hero" href="https://wa.me/556993969597?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20advogado%20sobre%20o%20Sal%C3%A1rio%20Maternidade." target="_blank">
                 <i class="fa-solid fa-phone"></i>
-                Falar com Advogado no WhatsApp
+                QUERO SABER SE TENHO DIREITO
             </a>
             <a class="btn-analysis" href="#contato">Fazer Análise Gratuita →</a>
         </div>
@@ -679,7 +682,7 @@
         <div class="direito-card reveal">
             <span class="dc-num">05</span>
             <h3 class="dc-title">Estabilidade no emprego</h3>
-            <p class="dc-text">A gestante tem estabilidade desde a confirmação da gravidez até 5 meses após o parto. Demissão nesse período é nula de pleno direito e pode gerar indenização.</p>
+            <p class="dc-text">A gestante tem estabilidade desde a confirmation da gravidez até 5 meses após o parto. Demissão nesse período é nula de pleno direito e pode gerar indenização.</p>
         </div>
         <div class="direito-card reveal">
             <span class="dc-num">06</span>
@@ -819,8 +822,7 @@
                 <span class="step-count" id="step-label">ETAPA 1 DE 4</span>
                 <span class="step-timer">⏱ 30 seg</span>
             </div>
-            <div id="step-container">
-                </div>
+            <div id="step-container"></div>
             <div class="form-actions">
                 <button class="btn-next" id="next-btn" onclick="nextStep()">Continuar →</button>
                 <button class="btn-back" id="back-btn" onclick="prevStep()" style="display:none;">Voltar para o anterior</button>
@@ -839,7 +841,6 @@
 </footer>
 
 <script>
-  // Observador de Rolagem para Animações (Reveals)
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -851,7 +852,6 @@
   }, { threshold: 0.08 });
   reveals.forEach(el => io.observe(el));
 
-  // Lógica do Formulário Dinâmico Multi-etapas
   let currentStep = 1;
   const totalSteps = 4;
   const formData = {
