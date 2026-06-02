@@ -87,22 +87,32 @@
           position: relative; overflow: hidden;
         }
 
-        .hero-bg {
+       .hero-bg {
     position: absolute;
     inset: 0;
     background: 
         radial-gradient(ellipse 60% 60% at 80% 40%, rgba(201,169,110,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 80% at 10% 60%, rgba(27,43,56,0.5) 0%, transparent 80%); /* Mudei de 0.9 para 0.5 */
+        radial-gradient(ellipse 50% 80% at 10% 60%, rgba(27,43,56,0.8) 0%, transparent 80%);
     pointer-events: none;
-    z-index: 1;
+    z-index: 1; /* Mantemos aqui, mas vamos colocar a imagem acima dele */
 }
 
-        .hero-image-wrap {
-          position: absolute; top: 0; right: 0; width: 45%; height: 100%;
-          z-index: 0; opacity: 0.4;
-          mask-image: linear-gradient(to left, black 60%, transparent);
-          -webkit-mask-image: linear-gradient(to left, black 60%, transparent);
-        }
+.hero-image-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%; /* Mudou de 45% para 100% para preencher o fundo no celular */
+    height: 100%;
+    z-index: 2;  /* Mudou de 0 para 2 para ficar ACIMA do fundo escuro */
+    opacity: 0.35; /* Controle aqui o quanto a imagem vai aparecer (0.35 é 35%) */
+}
+
+/* Garante que a imagem de dentro se comporte como background */
+.hero-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
 
         .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
