@@ -108,7 +108,7 @@
         .hero-line {
           position: absolute; top: 0; bottom: 0; left: 4rem;
           width: 1px;
-          background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 40%, transparent);
+          background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
           pointer-events: none; z-index: 2;
         }
 
