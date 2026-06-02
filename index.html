@@ -333,8 +333,8 @@ Você pode ter direito ao benefício.
   const totalSteps = 5;
   const formData = {
     situacao: '',
+    cenario: '',
     contribuicao: '',
-    rural: '',
     solicitacao: '',
     nome: ''
   };
@@ -350,6 +350,16 @@ Você pode ter direito ao benefício.
       key: 'situacao'
     },
     2: {
+      title: "Qual é a sua situação de trabalho?",
+      options: [
+        "Estou desempregada",
+        "Trabalho de carteira assinada(CLT)",
+        "Sou MEI ou autônoma",
+        "Recebo Bolsa Família"
+      ],
+      key: 'cenario'
+    },
+    3: {
       title: "Você já contribuiu para o INSS?",
       options: [
         "Sim, já contribuí",
@@ -357,15 +367,6 @@ Você pode ter direito ao benefício.
         "Não sei informar"
       ],
       key: 'contribuicao'
-    },
-    3: {
-      title: "Você mora ou já trabalhou na zona rural?",
-      options: [
-        "Sim",
-        "Não",
-        "Não sei informar"
-      ],
-      key: 'rural'
     },
     4: {
       title: "Já solicitou o Auxílio-Maternidade?",
@@ -453,7 +454,7 @@ Você pode ter direito ao benefício.
   }
 
   function finishForm() {
-    const texto = `Olá! Realizei a consulta no site da HG Advocacia.\n\n*Nome:* ${formData.nome}\n*Situação:* ${formData.situacao}\n*Contribuição:* ${formData.contribuicao}\n*Já solicitou:* ${formData.solicitacao}`;
+    const texto = `Olá! Realizei a consulta no site da HG Advocacia.\n\n*Nome:* ${formData.nome}\n*Situação:* ${formData.situacao}\n*Cenário:* ${formData.cenario}\n*Contribuição:* ${formData.contribuicao}\n*Já solicitou:* ${formData.solicitacao}`;
     window.open(`https://wa.me/556993969597?text=${encodeURIComponent(texto)}`, '_blank');
   }
 
